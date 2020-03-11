@@ -113,6 +113,7 @@ body {
   padding: 10px;
   color: #999;
   font-size: 13px;
+  overflow-y: scroll;
 }
 .wallet_list {
   display: flex;
@@ -138,4 +139,11 @@ body {
 }
 .product_index {
   position: absolute;
+}
+.product_list .active {
+  border-color: #ff6464;
+}
+
+.product_list .active .product_price {
+  background: #8b4513;
 }
