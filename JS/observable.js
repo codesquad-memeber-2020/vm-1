@@ -11,8 +11,6 @@ class Observable {
     );
   }
   notify(data) {
-    console.log("data is", data);
-    console.log("notify", this._observers);
     this._observers.forEach(observer => observer(data));
   }
 }

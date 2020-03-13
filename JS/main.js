@@ -1,7 +1,7 @@
 import Vmview from "./vmView.js";
-import VmModle from "./vmModle.js";
+import VmModel from "./vmModel.js";
 
 const targetObj = {};
 
-const vmModle = new VmModle();
+const vmModel = new VmModel();
 const vmView = new Vmview(vmModle, targetObj);
