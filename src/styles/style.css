@@ -19,7 +19,6 @@ body {
   width: 65%;
   height: 500px;
   border-right: 5px solid #000;
-  background-color: #333;
 }
 .choice_screen {
   width: 35%;
@@ -33,7 +32,7 @@ body {
   margin-left: 5%;
   border: 5px solid #000;
   border-radius: 15px;
-  background-color: #ccc;
+  background-color: #444;
 }
 .product_list {
   position: relative;
@@ -55,10 +54,10 @@ body {
   content: "";
 }
 .product_list li {
+  position: relative;
   font-size: 13px;
   border: 3px solid #222;
   border-radius: 4px;
-  background: #ccc;
 }
 .product_list li .product_name {
   display: flex;
@@ -74,17 +73,18 @@ body {
   color: #ddd;
 }
 .choice_product_price {
-  background: #ddd;
-  height: 35px;
-  line-height: 35px;
-  padding-left: 10px;
-  font-size: 14px;
+  height: 45px;
+  line-height: 45px;
+  padding-right: 15px;
+  font-size: 25px;
+  color: #fff;
+  text-align: right;
 }
 .choice_dial {
   display: grid;
   grid-template-rows: repeat(4, 50px);
   grid-template-columns: repeat(3, 1fr);
-  margin-top: 20px;
+  margin-top: 10px;
   grid-gap: 10px;
   padding: 0 15px;
 }
@@ -113,7 +113,8 @@ body {
   padding: 10px;
   color: #999;
   font-size: 13px;
-  overflow-y: scroll;
+  line-height: 30px;
+  overflow-y: auto;
 }
 .wallet_list {
   display: flex;
@@ -128,7 +129,13 @@ body {
   border: 0;
   outline: 0;
   border-radius: 4px;
+  width: 80px;
   height: 30px;
+  margin-right: 10px;
+  font-size: 13px;
+}
+.count_index {
+  color: #fff;
 }
 .wallet_sum {
   display: flex;
@@ -136,14 +143,18 @@ body {
   padding: 20px;
   font-size: 20px;
   font-weight: bold;
+  color: #fff;
 }
 .product_index {
   position: absolute;
+  top: 5px;
+  left: 5px;
 }
+
 .product_list .active {
-  border-color: #ff6464;
+  border-color: red;
 }
 
 .product_list .active .product_price {
-  background: #8b4513;
+  background: brown;
 }
