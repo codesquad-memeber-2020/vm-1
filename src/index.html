@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./reset.css" />
-    <link rel="stylesheet" href="./test.css" />
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/style.css" />
     <title>Document</title>
   </head>
   <body>
@@ -13,109 +13,109 @@
         <div class="product_screen">
           <ul class="product_list">
             <li>
-                <p class="product_index">1</p>
+              <span class="product_index">1</span>
               <p class="product_name">콜라</p>
               <p class="product_price">500</p>
             </li>
             <li>
-                <p class="product_index">2</p>
+              <span class="product_index">2</span>
               <p class="product_name">사이다</p>
               <p class="product_price">1000</p>
             </li>
             <li>
-                <p class="product_index">3</p>
+              <span class="product_index">3</span>
               <p class="product_name">파인애플 맛 환타</p>
               <p class="product_price">400</p>
             </li>
             <li>
-                <p class="product_index">4</p>
+              <span class="product_index">4</span>
               <p class="product_name">포도맛 환타</p>
               <p class="product_price">300</p>
             </li>
             <li>
-                <p class="product_index">5</p>
+              <span class="product_index">5</span>
               <p class="product_name">레몬에이드</p>
               <p class="product_price">900</p>
             </li>
             <li>
-                <p class="product_index">6</p>
+              <span class="product_index">6</span>
               <p class="product_name">봉봉</p>
               <p class="product_price">1200</p>
             </li>
             <li>
-                <p class="product_index">7</p>
+              <span class="product_index">7</span>
               <p class="product_name">코코아주스</p>
               <p class="product_price">1000</p>
             </li>
             <li>
-                <p class="product_index">8</p>
+              <span class="product_index">8</span>
               <p class="product_name">콜라제로</p>
               <p class="product_price">1000</p>
             </li>
             <li>
-                <p class="product_index">9</p>
+              <span class="product_index">9</span>
               <p class="product_name">파워에이드</p>
               <p class="product_price">2000</p>
             </li>
             <li>
-                <p class="product_index">10</p>
+              <span class="product_index">10</span>
               <p class="product_name">초코우유</p>
               <p class="product_price">1000</p>
             </li>
             <li>
-                <p class="product_index">11</p>
+              <span class="product_index">11</span>
               <p class="product_name">초코우유2</p>
               <p class="product_price">7000</p>
             </li>
             <li>
-                <p class="product_index">12</p>
+              <span class="product_index">12</span>
               <p class="product_name">초코우유3</p>
               <p class="product_price">600</p>
             </li>
             <li>
-                <p class="product_index">13</p>
+              <span class="product_index">13</span>
               <p class="product_name">딸바주스</p>
               <p class="product_price">1000</p>
             </li>
             <li>
-                <p class="product_index">14</p>
+              <span class="product_index">14</span>
               <p class="product_name">바나나우유</p>
               <p class="product_price">1000</p>
             </li>
             <li>
-                <p class="product_index">15</p>
+              <span class="product_index">15</span>
               <p class="product_name">커피우유</p>
               <p class="product_price">1000</p>
             </li>
             <li>
-                <p class="product_index">16</p>
+              <span class="product_index">16</span>
               <p class="product_name">알로에</p>
               <p class="product_price">1200</p>
             </li>
             <li>
-                <p class="product_index">17</p>
+              <span class="product_index">17</span>
               <p class="product_name">콘칩</p>
-              <p class="product_price" >1000</p>
+              <p class="product_price">1000</p>
             </li>
             <li>
-                <p class="product_index">18</p>
+              <span class="product_index">18</span>
               <p class="product_name">새우깡</p>
               <p class="product_price">1000</p>
             </li>
             <li>
-                <p class="product_index">19</p>
+              <span class="product_index">19</span>
               <p class="product_name">감자칩</p>
               <p class="product_price">2000</p>
             </li>
             <li>
-                <p class="product_index">20</p>
+              <span class="product_index">20</span>
               <p class="product_name">칸쵸</p>
               <p class="product_price">1000</p>
             </li>
           </ul>
         </div>
         <div class="choice_screen">
-          <div class="choice_product_price">상품 가격</div>
+          <div class="choice_product_price">0</div>
           <div class="choice_dial">
             <button>1</button>
             <button>2</button>
@@ -131,21 +131,22 @@
             <button>선택</button>
           </div>
           <div class="choice_message">
-            모든 진행 상태가 전달되는 창
+            돈을 넣어주세요.
           </div>
         </div>
       </div>
-    </div>
-          <div class="customer_wallet">
-            <ul class="wallet_list">
-              <li><button>10원</button> <span>0개</span></li>
-              <li><button>50원</button> <span>0개</span></li>
-              <li><button>100원</button> <span>0개</span></li>
-              <li><button>1000원</button> <span>0개</span></li>
-              <li><button>5000원</button> <span>0개</span></li>
-              <li><button>10000원</button> <span>0개</span></li>
-            </ul>
-            <div class="wallet_sum">23,500</div>
+      <div class="customer_wallet">
+        <!-- <ul class="wallet_list"> -->
+        <!-- <li><button value="10">10원</button> <span class="count_index">0</span></li>
+          <li><button value="50">50원</button> <span class="count_index">0</span></li>
+          <li><button value="100">100원</button> <span class="count_index">0</span></li>
+          <li><button value="1000">1000원</button> <span class="count_index">0</span></li>
+          <li><button value="5000">5000원</button> <span class="count_index">5</span></li>
+          <li><button value="10000">10000원</button> <span class="count_index">5</span></li> -->
+        <!-- </ul> -->
+        <div class="wallet_sum">0</div>
+      </div>
     </section>
+    <script src="./main.js" type="module"></script>
   </body>
 </html>
