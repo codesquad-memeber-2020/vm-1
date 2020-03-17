@@ -3,13 +3,14 @@ class WalletView {
     this.element = el;
     this.walletModel = walletModel;
     this.vendingMachineModel = vendingModel;
+
     this.walletModel.subscribe(this.render.bind(this));
   }
 
   bindEvent() {
     this.element.querySelector(".wallet_list").addEventListener("click", e => {
       if (e.target.tagName !== "BUTTON") return;
-      console.log(`Wallet view Click`);
+
       this.walletModel.addEvent(e);
       this.vendingMachineModel.addEventWallet();
     });
@@ -26,7 +27,7 @@ class WalletView {
         `);
       }, '<ul class="wallet_list">') +
       `</ul>
-        <div class="wallet_sum">${0}</div>
+        <div class="wallet_sum">${userWalletSum}</div>
       `;
 
     this.element.innerHTML = walletListHTML;

@@ -11,16 +11,40 @@ class WalletModel extends Observable {
   }
 
   init() {
-    //DOM이 로드될때 최초 실행
+    this.beginningSum();
     this.notify(this.walletData);
   }
 
   addEvent(event) {
-    //이벤트가 일어났을떄 호출되는 메서드
+    const clickedTarget = Number(event.target.value);
 
-    //... walletData count 조작 (차감)
-
+    this.decreaseWalletData(clickedTarget);
     this.notify(this.walletData);
+  }
+
+  decreaseWalletData(clickedTarget) {
+    this.walletData.userWalletList.forEach(el => {
+      if (el.name === clickedTarget) {
+        if (el.count === 0) {
+          alert(`남은 개수가 부족합니다.`);
+          return;
+        }
+        this.calculateSum(clickedTarget);
+        el.count--;
+      }
+    });
+  }
+
+  calculateSum(clickedTarget) {
+    this.walletData.userWalletSum -= clickedTarget;
+  }
+
+  beginningSum() {
+    const walletList = this.walletData.userWalletList;
+
+    walletList.forEach(el => {
+      this.walletData.userWalletSum += el.name * el.count;
+    });
   }
 }
 
