@@ -5,6 +5,7 @@ class WalletView {
     this.vendingMachineModel = vendingModel;
 
     this.walletModel.subscribe(this.render.bind(this));
+    this.init();
   }
 
   bindEvent() {
@@ -17,21 +18,22 @@ class WalletView {
   }
 
   render({ userWalletList, userWalletSum }) {
-    const walletListHTML =
-      userWalletList.reduce((html, item) => {
-        return (html += `
+    const walletListHTML = userWalletList.reduce((html, item) => {
+      return (html += `
           <li>
             <button value="${item.name}">${item.name}원</button>
             <span class="count_index">${item.count}</span>
           </li>
         `);
-      }, '<ul class="wallet_list">') +
-      `</ul>
-        <div class="wallet_sum">${userWalletSum}</div>
-      `;
+    }, "");
 
-    this.element.innerHTML = walletListHTML;
+    const walletSumHTML = `<div class="wallet_sum">${userWalletSum}</div>`;
+    const walletRenderHTML = walletListHTML + walletSumHTML;
 
+    this.element.querySelector(".wallet_list").innerHTML = walletRenderHTML;
+  }
+
+  init() {
     this.bindEvent();
   }
 }
