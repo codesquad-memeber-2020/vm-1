@@ -10,10 +10,11 @@ class WalletView {
 
   bindEvent() {
     this.element.querySelector(".wallet_list").addEventListener("click", e => {
-      if (e.target.tagName !== "BUTTON") return;
+      const target = e.target;
+      if (target.tagName !== "BUTTON") return;
 
       this.walletModel.addEvent(e);
-      this.vendingMachineModel.addEventWallet();
+      this.vendingMachineModel.addEventWallet(target.closest('li').querySelector('.count_index').textContent);
     });
   }
 

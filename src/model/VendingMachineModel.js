@@ -21,11 +21,9 @@ class VendingMachineModel extends Observable {
     await this.notify(this.state);
   }
 
-  addEventWallet() {
+  addEventWallet(targetCountNumber) {
     const target = event.target;
-    const targetCount = Number(
-      target.parentNode.querySelector(".count_index").textContent
-    );
+    const targetCount = Number(targetCountNumber);
     if (!targetCount) return;
     this.state.targetValue = target.value;
     this.state.accumulatedAmount += Number(target.value);
