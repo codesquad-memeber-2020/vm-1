@@ -4,12 +4,29 @@ class ProductView {
     this.vendingMachineModel = vendingModel;
     this.vendingMachineModel.subscribe(this.render.bind(this));
   }
-  render({ accumulatedAmount }) {
-    this.active(accumulatedAmount);
+
+  render({ productData }) {
+    const productListEle = this.element.querySelector('.product_list');
+    const productHTML = productData.reduce((html, item) => {
+      return (html += `
+        <li>
+          <span class="product_index">${item.id}</span>
+          <p class="product_name">${item.name}</p>
+          <p class="product_price">${item.price}</p>
+        </li>
+      `)
+    }, '');
+
+    productListEle.innerHTML = productHTML;
+    this.active(productListEle, productData);
   }
 
-  active(acc) {
+  active(productListEle, productData) {
     // active 기능 메서드
+    productData.forEach((ele, idx) => {
+      if(ele.active) productListEle.children[idx].className = 'active';
+      else productListEle.children[idx].className = '';
+    })
   }
 }
 
