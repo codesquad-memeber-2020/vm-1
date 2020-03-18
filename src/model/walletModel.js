@@ -1,11 +1,10 @@
 import Observable from "./observable.js";
-import { walletData } from "../model/mockData.js";
 
 class WalletModel extends Observable {
   constructor() {
     super();
     this.walletData = {
-      userWalletList: walletData,
+      userWalletList: null,
       userWalletSum: 0
     };
   }
