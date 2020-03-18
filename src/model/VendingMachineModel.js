@@ -1,9 +1,10 @@
 import Observable from "./observable.js";
-import { productData } from "../model/mockData.js";
 
 class VendingMachineModel extends Observable {
   constructor() {
     super();
+    this.productData = null;
+
     this.state = {
       accumulatedAmount: 0,
       targetValue: null,
@@ -11,6 +12,13 @@ class VendingMachineModel extends Observable {
       productName: "",
       type: ""
     };
+  }
+
+  async initFetch(url) {
+    const res = await fetch(url);
+    const jsonData = await res.json();
+
+    this.productData = jsonData.productList;
   }
 
   addEventWallet() {
@@ -33,7 +41,7 @@ class VendingMachineModel extends Observable {
 
   clickSelectDial(number) {
     const productId = Number(number);
-    if (!productId || productId > productData.length)
+    if (!productId || productId > this.productData.length)
       return (this.state.productNumber = "");
     this.state.type = "dial";
     const filteringProduct = this.filterProduct(productId);
@@ -52,7 +60,7 @@ class VendingMachineModel extends Observable {
   }
 
   filterProduct(id) {
-    const filteringProduct = productData.filter(
+    const filteringProduct = this.productData.filter(
       product => product.id === id
     )[0];
 
