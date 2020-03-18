@@ -10,9 +10,14 @@ class WalletModel extends Observable {
     };
   }
 
-  init() {
-    this.beginningSum();
-    this.notify(this.walletData);
+  async initFetch(url) {
+    const res = await fetch(url);
+    const jsonData = await res.json();
+
+    this.walletData.userWalletList = jsonData.walletList;
+
+    await this.beginningSum();
+    await this.notify(this.walletData);
   }
 
   addEvent(event) {

@@ -14,14 +14,15 @@ class SelectView {
       if (e.target.tagName !== "BUTTON") return;
       const targetValue = e.target.innerText;
       const targetDataType = e.target.dataset.type;
+      console.log(targetDataType);
       this.vendingMachineModel.addEventDial(targetValue, targetDataType);
     });
   }
 
-  render({ targetValue, accumulatedAmount, productName, type}) {
+  render({ targetValue, accumulatedAmount, productName, type }) {
     //log
-    const stateLogEle = this.element.querySelector('.choice_message');
-    const logText = this.renderStateLog({targetValue, productName, type});
+    const stateLogEle = this.element.querySelector(".choice_message");
+    const logText = this.renderStateLog({ targetValue, productName, type });
     stateLogEle.innerHTML += `<p>${logText}</p>`;
 
     //accumu
@@ -31,17 +32,17 @@ class SelectView {
     stateLogEle.scrollTop = stateLogEle.scrollHeight;
   }
 
-  renderStateLog ({targetValue, productName, type}) {
-    let logText = '';
-    if (type === 'wallet') logText = `${targetValue}원이 투입되었습니다.`;
-    else if (type === 'dial') logText = `${productName}이(가) 팔렸습니다.`;
-    else if (type === 'err') logText = `잔액이 부족합니다`;
+  renderStateLog({ targetValue, productName, type }) {
+    let logText = "";
+    if (type === "wallet") logText = `${targetValue}원이 투입되었습니다.`;
+    else if (type === "dial") logText = `${productName}이(가) 팔렸습니다.`;
+    else if (type === "err") logText = `잔액이 부족합니다`;
 
     return logText;
   }
 
-  renderAccumulateInput (value) {
-    const inputAmountEle = this.element.querySelector('.choice_product_price');
+  renderAccumulateInput(value) {
+    const inputAmountEle = this.element.querySelector(".choice_product_price");
     inputAmountEle.innerText = value;
   }
 
