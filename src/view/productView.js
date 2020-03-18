@@ -22,7 +22,6 @@ class ProductView {
   }
 
   active(productListEle, productData) {
-    // active 기능 메서드
     productData.forEach((ele, idx) => {
       if(ele.active) productListEle.children[idx].className = 'active';
       else productListEle.children[idx].className = '';
