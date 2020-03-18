@@ -3,9 +3,8 @@ import Observable from "./observable.js";
 class VendingMachineModel extends Observable {
   constructor() {
     super();
-    this.productData = null;
-
     this.state = {
+      productData : null,
       accumulatedAmount: 0,
       targetValue: null,
       productNumber: "",
@@ -18,7 +17,8 @@ class VendingMachineModel extends Observable {
     const res = await fetch(url);
     const jsonData = await res.json();
 
-    this.productData = jsonData.productList;
+    this.state.productData = jsonData.productList;
+    await this.notify(this.state);
   }
 
   addEventWallet() {
@@ -30,6 +30,7 @@ class VendingMachineModel extends Observable {
     this.state.targetValue = target.value;
     this.state.accumulatedAmount += Number(target.value);
     this.state.type = "wallet";
+    this.filterActiveProduct(this.state.productData);
     this.notify(this.state);
   }
 
@@ -41,10 +42,10 @@ class VendingMachineModel extends Observable {
 
   clickSelectDial(number) {
     const productId = Number(number);
-    if (!productId || productId > this.productData.length)
+    if (!productId || productId > this.state.productData.length)
       return (this.state.productNumber = "");
     this.state.type = "dial";
-    const filteringProduct = this.filterProduct(productId);
+    const filteringProduct = this.filterIdProduct(productId);
 
     if (this.state.accumulatedAmount < Number(filteringProduct.price)) {
       this.state.productNumber = "";
@@ -54,17 +55,25 @@ class VendingMachineModel extends Observable {
 
     this.state.productName = filteringProduct.name;
     this.state.accumulatedAmount -= Number(filteringProduct.price);
+    this.filterActiveProduct(this.state.productData);
     this.notify(this.state);
 
     this.state.productNumber = "";
   }
 
-  filterProduct(id) {
-    const filteringProduct = this.productData.filter(
+  filterIdProduct(id) {
+    const filteringProduct = this.state.productData.filter(
       product => product.id === id
     )[0];
 
     return { name: filteringProduct.name, price: filteringProduct.price };
+  }
+
+  filterActiveProduct(productList) {
+    productList.forEach((product, idx) => {
+      if(product.price <= this.state.accumulatedAmount) this.state.productData[idx].active = true;
+      else this.state.productData[idx].active = false;
+    });
   }
 }
 

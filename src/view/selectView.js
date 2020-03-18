@@ -14,21 +14,18 @@ class SelectView {
       if (e.target.tagName !== "BUTTON") return;
       const targetValue = e.target.innerText;
       const targetDataType = e.target.dataset.type;
-      console.log(targetDataType);
+
       this.vendingMachineModel.addEventDial(targetValue, targetDataType);
     });
   }
 
   render({ targetValue, accumulatedAmount, productName, type }) {
-    //log
     const stateLogEle = this.element.querySelector(".choice_message");
     const logText = this.renderStateLog({ targetValue, productName, type });
     stateLogEle.innerHTML += `<p>${logText}</p>`;
 
-    //accumu
     this.renderAccumulateInput(accumulatedAmount);
 
-    //scroll 맨 끝으로 이동
     stateLogEle.scrollTop = stateLogEle.scrollHeight;
   }
 
