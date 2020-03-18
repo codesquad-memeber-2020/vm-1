@@ -22,4 +22,5 @@ const walletView = new WalletView(
   vendingMachineModel
 );
 
-walletModel.init();
+const url = "http://localhost:8080/data/vmData.json";
+walletModel.initFetch(url);
