@@ -14,7 +14,9 @@ class WalletView {
       if (target.tagName !== "BUTTON") return;
 
       this.walletModel.addEvent(e);
-      this.vendingMachineModel.addEventWallet(target.closest('li').querySelector('.count_index').textContent);
+      this.vendingMachineModel.addEventWallet(
+        target.closest("li").querySelector(".count_index").textContent
+      );
     });
   }
 

@@ -4,7 +4,7 @@ class VendingMachineModel extends Observable {
   constructor() {
     super();
     this.state = {
-      productData : null,
+      productData: null,
       accumulatedAmount: 0,
       targetValue: null,
       productNumber: "",
@@ -69,7 +69,8 @@ class VendingMachineModel extends Observable {
 
   filterActiveProduct(productList) {
     productList.forEach((product, idx) => {
-      if(product.price <= this.state.accumulatedAmount) this.state.productData[idx].active = true;
+      if (product.price <= this.state.accumulatedAmount)
+        this.state.productData[idx].active = true;
       else this.state.productData[idx].active = false;
     });
   }

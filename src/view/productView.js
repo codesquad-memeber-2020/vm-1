@@ -6,7 +6,7 @@ class ProductView {
   }
 
   render({ productData }) {
-    const productListEle = this.element.querySelector('.product_list');
+    const productListEle = this.element.querySelector(".product_list");
     const productHTML = productData.reduce((html, item) => {
       return (html += `
         <li>
@@ -14,8 +14,8 @@ class ProductView {
           <p class="product_name">${item.name}</p>
           <p class="product_price">${item.price}</p>
         </li>
-      `)
-    }, '');
+      `);
+    }, "");
 
     productListEle.innerHTML = productHTML;
     this.active(productListEle, productData);
@@ -23,9 +23,9 @@ class ProductView {
 
   active(productListEle, productData) {
     productData.forEach((ele, idx) => {
-      if(ele.active) productListEle.children[idx].className = 'active';
-      else productListEle.children[idx].className = '';
-    })
+      if (ele.active) productListEle.children[idx].className = "active";
+      else productListEle.children[idx].className = "";
+    });
   }
 }
 
