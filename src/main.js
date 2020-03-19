@@ -5,6 +5,8 @@ import WalletView from "./view/walletView.js";
 import VendingMachineModel from "./model/VendingMachineModel.js";
 import WalletModel from "./model/walletModel.js";
 
+import VM from "./constant/vmConstant.js";
+
 const _ = {
   productEle: document.querySelector(".product_screen"),
   selectEle: document.querySelector(".choice_screen"),
@@ -22,6 +24,5 @@ const walletView = new WalletView(
   vendingMachineModel
 );
 
-const url = "http://localhost:8080/data/vmData.json";
-walletModel.initFetch(url);
-vendingMachineModel.initFetch(url);
+walletModel.initFetch(VM.URL);
+vendingMachineModel.initFetch(VM.URL);
