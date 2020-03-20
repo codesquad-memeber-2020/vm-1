@@ -4,6 +4,7 @@ import WalletView from "./view/walletView.js";
 
 import VendingMachineModel from "./model/VendingMachineModel.js";
 import WalletModel from "./model/walletModel.js";
+import TimerModel from "./model/timerModel.js";
 
 import VM from "./constant/vmConstant.js";
 
@@ -13,8 +14,9 @@ const _ = {
   walletEle: document.querySelector(".customer_wallet")
 };
 
-const vendingMachineModel = new VendingMachineModel();
 const walletModel = new WalletModel();
+const timerModel = new TimerModel(walletModel);
+const vendingMachineModel = new VendingMachineModel(timerModel);
 
 const productView = new ProductView(_.productEle, vendingMachineModel);
 const selectView = new SelectView(_.selectEle, vendingMachineModel);
